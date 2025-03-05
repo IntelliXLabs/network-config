@@ -17,5 +17,7 @@
   "data_oracle_service_manager_implementation": "0x432550E4425f36C330A4AD0862CABB01A7D3DfbD",
   "data_oracle_implementation": "0x9FB602118D5C7230d7c343D88908A37Acb1f97A1",
   "price_aggregator_implementation": "0xeb8f6Bc546bE3BAA2FDa1b2FBC05adb2aeFA495A",
-  "price_aggregator_proxy": "0x530C06E8556E3548D568c3bf99ee2d5180234626"
+  "price_aggregator_proxy": "0x530C06E8556E3548D568c3bf99ee2d5180234626",
+  "price_oracle_pay_in_native_consumer": "0x19Ba9e0d9A6f976053379aF6365F248A658d8bAC",
+  "script_oracle_pay_in_native_consumer": "0x3787530a76e384A1D1A2425D46e29Adc4Eb9E824"
 }
