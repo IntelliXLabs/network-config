@@ -71,10 +71,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Pulling image: docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG}"
-          docker pull docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG}
+          echo "Pulling image: docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG}"
+          docker pull docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG}
 
-          CONTAINER_ID=$(docker create docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG})
+          CONTAINER_ID=$(docker create docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG})
           docker cp $CONTAINER_ID:/usr/bin/intellixd ./intellixd-${NEW_VERSION}-linux-amd64
           docker rm $CONTAINER_ID
 
