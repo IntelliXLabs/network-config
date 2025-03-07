@@ -7,6 +7,6 @@ function fetch_pell_address {
 
 function fetch_dvs_address {
   KEY=$1
-  curl -s https://api.github.com/repos/IntelliXLabs/network-config/contents/testnet/price_oracle.json | jq -r ".$KEY"
+  curl -s https://raw.githubusercontent.com/IntelliXLabs/network-config/refs/heads/main/testnet/price_oracle.json | jq -r ".$KEY"
 }
 
