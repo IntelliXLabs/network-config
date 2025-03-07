@@ -1,0 +1,8 @@
+{
+  "binaries": [
+    {
+      "download_url": "https://github.com/IntelliXLabs/network-config/releases/download/v1.0.0/intellixd--linux-amd64",
+      "binary_location": "cosmovisor/genesis/bin/intellixd"
+    }
+  ]
+}

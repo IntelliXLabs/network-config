@@ -1,0 +1,16 @@
+name: intellix
+
+services:
+
+  abci:
+    image: docker.io/pellnetwork/intellix:v1.0.0
+    entrypoint: [ "bash", "/root/scripts/entrypoint.sh" ]
+    volumes:
+      - .intellix:/root/.intellix
+      - ./scripts:/root/scripts
+    ports:
+      - 1317:1317
+      - 9090:9090
+      - 26656:26656
+      - 26657:26657
+

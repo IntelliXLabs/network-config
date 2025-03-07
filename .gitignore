@@ -1,0 +1,11 @@
+.pelldvs/
+.avsi/
+.abci/
+.intellix/
+env-intellix-testnet.env
+start.sh
+test.sh
+genesis-data-*
+genesis-data.*
+genesis-data*
+.env
