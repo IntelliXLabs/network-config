@@ -5,6 +5,12 @@ services:
   abci:
     image: docker.io/pellnetwork/intellix:v1.0.0
     entrypoint: [ "bash", "/root/scripts/entrypoint.sh" ]
+    environment:
+      - FAST_SYNC=${FAST_SYNC:-true}
+      - MONIKER=${MONIKER:-local-test}
+      - SEEDS=${SEEDS:-""}
+      - RPC_SERVERS=${RPC_SERVERS:-""}
+      - IS_ARCHIVE=${IS_ARCHIVE:-false}
     volumes:
       - .intellix:/root/.intellix
       - ./scripts:/root/scripts
