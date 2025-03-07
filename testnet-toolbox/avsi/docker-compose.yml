@@ -23,6 +23,5 @@ services:
       - "${HOST_SERVER_PORT:-36657}:26657"
     entrypoint: [ "bash", "/root/scripts/start_avsi.sh" ]
     volumes:
-      - .pelldvs:/root/.pelldvs
       - .intellix:/root/.intellix
       - ./scripts:/root/scripts
