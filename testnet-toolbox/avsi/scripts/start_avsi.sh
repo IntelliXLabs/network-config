@@ -11,7 +11,7 @@ logt() {
 }
 
 function load_defaults {
-  export INTELLIX_HOME=${INTELLIX_HOME:-/root/.intellix}
+  export PELLDVS_HOME=${PELLDVS_HOME:-/root/.pelldvs}
   export ETH_RPC_URL=${ETH_RPC_URL}
   export ETH_WS_URL=${ETH_WS_URL}
   export GATEWAY_ADDR=${GATEWAY_ADDR:-gateway:8949}
@@ -71,7 +71,7 @@ function gateway_healthcheck {
 
 ## TODO: move operator config to seperated location
 function init_pelldvs_config {
-  pelldvs init --home $INTELLIX_HOME
+  pelldvs init --home $PELLDVS_HOME
   update-config() {
     KEY="$1"
     VALUE="$2"
@@ -80,9 +80,9 @@ function init_pelldvs_config {
 
   ## update config
   ## FIXME: don't use absolute path for key
-  update-config operator_bls_private_key_store_path "$INTELLIX_HOME/keys/$OPERATOR_KEY_NAME.bls.key.json"
-  update-config operator_ecdsa_private_key_store_path "$INTELLIX_HOME/keys/$OPERATOR_KEY_NAME.ecdsa.key.json"
-  update-config interactor_config_path "$INTELLIX_HOME/config/interactor_config.json"
+  update-config operator_bls_private_key_store_path "$PELLDVS_HOME/keys/$OPERATOR_KEY_NAME.bls.key.json"
+  update-config operator_ecdsa_private_key_store_path "$PELLDVS_HOME/keys/$OPERATOR_KEY_NAME.ecdsa.key.json"
+  update-config interactor_config_path "$PELLDVS_HOME/config/interactor_config.json"
   update-config aggregator_rpc_url "$AGGREGATOR_RPC_URL"
 
   REGISTRY_ROUTER_FACTORY_ADDRESS=$(fetch_pell_address "registry_router_factory")
@@ -94,7 +94,7 @@ function init_pelldvs_config {
   DVS_OPERATOR_INFO_PROVIDER=$(fetch_dvs_address "operator_info_provider")
   DVS_OPERATOR_INDEX_MANAGER=$(fetch_dvs_address "operator_index_manager_proxy")
 
-  cat <<EOF > $INTELLIX_HOME/config/interactor_config.json
+  cat <<EOF > $PELLDVS_HOME/config/interactor_config.json
 {
     "rpc_url": "$ETH_RPC_URL",
     "chain_id": $CHAIN_ID,
@@ -122,21 +122,21 @@ EOF
 }
 
 function gen_cosmos_key {
-  if intellixd keys show $OPERATOR_KEY_NAME --keyring-backend test --home $INTELLIX_HOME; then
+  if intellixd keys show $OPERATOR_KEY_NAME --keyring-backend test --home $PELLDVS_HOME; then
     echo "Operator key already exists"
   else
-    echo $OPERATOR_KEY_MNEMONIC | intellixd keys add $OPERATOR_KEY_NAME --recover --keyring-backend=test --home $INTELLIX_HOME
+    echo $OPERATOR_KEY_MNEMONIC | intellixd keys add $OPERATOR_KEY_NAME --recover --keyring-backend=test --home $PELLDVS_HOME
   fi
 
   ## migrate to dvs logic after fix
-  export OPERATOR_ADDRESS=$(pelldvs keys show $OPERATOR_KEY_NAME --home $INTELLIX_HOME | awk '/Key content:/{getline; print}' | head -n 1 | jq -r .address)
+  export OPERATOR_ADDRESS=$(pelldvs keys show $OPERATOR_KEY_NAME --home $PELLDVS_HOME | awk '/Key content:/{getline; print}' | head -n 1 | jq -r .address)
 }
 
 function setup_dispatcher_config {
-  mkdir -p $INTELLIX_HOME/config
+  mkdir -p $PELLDVS_HOME/config
   DATA_ORACLE_ADDRESS=$(fetch_dvs_address "data_oracle_proxy")
 
-  cat <<EOF > $INTELLIX_HOME/config/dispatcher.config.json
+  cat <<EOF > $PELLDVS_HOME/config/dispatcher.config.json
 {
   "dvs_address": "tcp://$OPERATOR_RPC_SERVER",
   "chains": [
@@ -153,7 +153,7 @@ EOF
 function setup_operator_config {
   gen_cosmos_key
   ## TODO: use operator key on config.toml and gateway should be on app.toml
-  cat <<EOF > $INTELLIX_HOME/config/operator.config.json
+  cat <<EOF > $PELLDVS_HOME/config/operator.config.json
 {
   "operator_address": "$OPERATOR_ADDRESS",
   "gateway_addr": "$GATEWAY_ADDR",
@@ -164,7 +164,7 @@ EOF
 }
 
 function start_operator {
-  intellixd start-operator --home $INTELLIX_HOME
+  intellixd start-operator --home $PELLDVS_HOME
 }
 
 logt "Load Default Values for ENV Vars if not set."
