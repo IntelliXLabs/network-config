@@ -123,10 +123,10 @@ EOF
 }
 
 function gen_cosmos_key {
-  if intellixd keys show $OPERATOR_KEY_NAME --keyring-backend test --home $PELLDVS_HOME; then
+  if intellixd keys show $OPERATOR_KEY_NAME --keyring-backend test --home $INTELLIX_HOME; then
     echo "Operator key already exists"
   else
-    echo $OPERATOR_KEY_MNEMONIC | intellixd keys add $OPERATOR_KEY_NAME --recover --keyring-backend=test --home $PELLDVS_HOME
+    echo $OPERATOR_KEY_MNEMONIC | intellixd keys add $OPERATOR_KEY_NAME --recover --keyring-backend=test --home $INTELLIX_HOME
   fi
 
   ## migrate to dvs logic after fix
@@ -165,7 +165,7 @@ EOF
 }
 
 function start_operator {
-  intellixd start-operator --home $PELLDVS_HOME
+  intellixd start-operator --home $INTELLIX_HOME
 }
 
 logt "Load Default Values for ENV Vars if not set."
