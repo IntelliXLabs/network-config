@@ -71,17 +71,17 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Pulling image: docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG}"
-          docker pull docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG}
+          echo "Pulling image: docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG}"
+          docker pull docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG}
 
-          CONTAINER_ID=$(docker create docker.io/pellnetwork/intellix:${GORELEASER_CURRENT_TAG})
-          docker cp $CONTAINER_ID:/usr/bin/intellix ./intellix-${NEW_VERSION}-linux-amd64
+          CONTAINER_ID=$(docker create docker.io/pellnetwork/intellixd:${GORELEASER_CURRENT_TAG})
+          docker cp $CONTAINER_ID:/usr/bin/intellixd ./intellixd-${NEW_VERSION}-linux-amd64
           docker rm $CONTAINER_ID
 
-          sha256sum intellix-${NEW_VERSION}-linux-amd64 > checksums.txt
+          sha256sum intellixd-${NEW_VERSION}-linux-amd64 > checksums.txt
 
           mkdir -p release
-          mv intellix-${NEW_VERSION}-linux-amd64 release/
+          mv intellixd-${NEW_VERSION}-linux-amd64 release/
           mv checksums.txt release/
 
           gh release upload "${GORELEASER_CURRENT_TAG}" release/*
