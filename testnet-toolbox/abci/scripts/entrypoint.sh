@@ -201,9 +201,14 @@ overwrite_genesis_binary() {
   local first_binary_path="${DAEMON_HOME}/cosmovisor/genesis/bin/intellixd"
 
   mkdir -p "$(dirname "${first_binary_path}")"
+
   if [ -f "${last_downloaded_binary_path}" ]; then
-    cp -f "${last_downloaded_binary_path}" "${first_binary_path}"
-    logt "FAST_SYNC is enabled. Overwrote ${first_binary_path} with ${last_downloaded_binary_path}"
+    if [ "$last_downloaded_binary_path" != "$first_binary_path" ]; then
+      cp -f "${last_downloaded_binary_path}" "${first_binary_path}"
+      logt "FAST_SYNC is enabled. Overwrote ${first_binary_path} with ${last_downloaded_binary_path}"
+    else
+      logt "Skipping copy: Source and destination are the same."
+    fi
   else
     logt "FAST_SYNC enabled but last downloaded binary not found: ${last_downloaded_binary_path}"
   fi
