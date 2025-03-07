@@ -6,7 +6,7 @@ logt() {
 }
 
 function load_defaults {
-  export DAEMON_HOME=${DAEMON_HOME:=~/.intellixd}
+  export DAEMON_HOME=${DAEMON_HOME:=~/.intellix}
   export COSMOVISOR_VERSION=${COSMOVISOR_VERSION:=v1.5.0}
   export CHAIN_ID=${CHAIN_ID:=intellix}
   export COSMOVISOR_CHECKSUM=${COSMOVISOR_CHECKSUM:=7f4bebfb18a170bff1c725f13dda326e0158132deef9f037ab0c2a48727c3077}
@@ -17,7 +17,7 @@ function load_defaults {
   export MONIKER=${MONIKER:=local-test}
   export FAST_SYNC=${FAST_SYNC:=true}
   export WASMVM_VERSION=${WASMVM_VERSION:=v2.1.2}
-  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:=~/.intellixd/lib}
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:=~/.intellix/lib}
   export DEBUG=${DEBUG:=false}
   export LOG_LEVEL=${LOG_LEVEL:=info}
   export SEEDS=${SEEDS:=""}
