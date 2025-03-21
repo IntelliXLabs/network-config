@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 logt() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') $1"
