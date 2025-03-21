@@ -21,8 +21,8 @@ function load_defaults {
   export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:=~/.intellix/lib}
   export DEBUG=${DEBUG:=false}
   export LOG_LEVEL=${LOG_LEVEL:=info}
-  export SEEDS=${SEEDS:=""}
-  export RPC_SERVERS=${RPC_SERVERS:=""}
+  export SEEDS="${SEEDS:-}"
+  export RPC_SERVERS="${RPC_SERVERS:-}"
   export IS_ARCHIVE=${IS_ARCHIVE:=false}
 
 
