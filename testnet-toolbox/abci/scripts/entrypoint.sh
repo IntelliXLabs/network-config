@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 logt() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') $1"
@@ -20,8 +21,8 @@ function load_defaults {
   export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:=~/.intellix/lib}
   export DEBUG=${DEBUG:=false}
   export LOG_LEVEL=${LOG_LEVEL:=info}
-  export SEEDS=${SEEDS:=""}
-  export RPC_SERVERS=${RPC_SERVERS:=""}
+  export SEEDS="${SEEDS:-}"
+  export RPC_SERVERS="${RPC_SERVERS:-}"
   export IS_ARCHIVE=${IS_ARCHIVE:=false}
 
 
@@ -262,10 +263,12 @@ function change_config_values {
     sed -i.bak -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" ${DAEMON_HOME}/config/config.toml
 
     if [ ! -z "${RPC_SERVERS}" ]; then
+       logt "Updating rpc_servers..."
         sed -i.bak -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+)\".*\"|\1\"${RPC_SERVERS}\"|" "${DAEMON_HOME}/config/config.toml"
     fi
 
     if [ ! -z "${SEEDS}" ]; then
+      logt "Updating seeds and persistent peers..."
       sed -i.bak -E "s|^(seeds[[:space:]]+=[[:space:]]+)\".*\"|\1\"${SEEDS}\"|" "${DAEMON_HOME}/config/config.toml"
       sed -i.bak -E "s|^(persistent_peers[[:space:]]+=[[:space:]]+)\".*\"|\1\"${SEEDS}\"|" "${DAEMON_HOME}/config/config.toml"        
     fi
