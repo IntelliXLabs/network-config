@@ -8,6 +8,7 @@
   "ejection_manager_implementation": "0x497576ed839758251e996c2F6892EAeE26DC7cdA",
   "ejection_manager_proxy": "0x04A17eB1E171a2b757fF153A42D6fCB622aaC37d",
   "empty_contract": "0x9a39c5ebaF78374BE13F6f80f6acA63422F6fe99",
+  "indices_oracle_pay_in_native_consumer": "0xCd71908Fc16b2f6a8f342435BD85E733b282753D",
   "operator_index_manager_implementation": "0xB408eb5CF855c64128c0743E283eDd4B349Cb903",
   "operator_index_manager_proxy": "0x1e6E9E1e15D381D3daC2a3ddf45f97Ec215f019F",
   "operator_info_provider": "0x488543C6Fe575E340e85F6beAB51524AdacC6Ea6",
@@ -19,5 +20,6 @@
   "price_aggregator_proxy": "0x5c4EA5ebbCDa8f0338a9aD45b719FA8691113e56",
   "price_oracle_pay_in_native_consumer": "0x1b4BAf265F88db07bC9fB5E3e46A600E350AFADC",
   "proxy_admin": "0xd3f9b93B1a57AA9063B5574E271F9aD1a3C6Cd0E",
-  "script_oracle_pay_in_native_consumer": "0xb65cdD4869d4Ae9509E71263EFb60E7803994924"
+  "script_oracle_pay_in_native_consumer": "0xb65cdD4869d4Ae9509E71263EFb60E7803994924",
+  "vrf_oracle_pay_in_native_consumer": "0x6781842FDbD02eB93DDA9579D0f3ccFa18E904dC"
 }
