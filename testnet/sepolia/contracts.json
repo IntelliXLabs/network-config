@@ -1,0 +1,23 @@
+{
+  "central_scheduler_implementation": "0x7bb0d4C609a43d25100cF94bD748bE6cD3F426cd",
+  "central_scheduler_proxy": "0x8050B1e4BceB083A1954C2B34e10a12CdD97CF01",
+  "data_oracle_implementation": "0x4D92311Ea928c26d66898041619999676230618E",
+  "data_oracle_proxy": "0xEaCf2eAA562b8105f9868b7f8aaB58b2577fc075",
+  "data_oracle_service_manager_implementation": "0x31B7A655A1A0cA53fED47685ADEacD4913Fefd7E",
+  "data_oracle_service_manager_proxy": "0x74fbC0eFb4C024277968039C6d20e0d015B315a7",
+  "ejection_manager_implementation": "0x497576ed839758251e996c2F6892EAeE26DC7cdA",
+  "ejection_manager_proxy": "0x04A17eB1E171a2b757fF153A42D6fCB622aaC37d",
+  "empty_contract": "0x9a39c5ebaF78374BE13F6f80f6acA63422F6fe99",
+  "operator_index_manager_implementation": "0xB408eb5CF855c64128c0743E283eDd4B349Cb903",
+  "operator_index_manager_proxy": "0x1e6E9E1e15D381D3daC2a3ddf45f97Ec215f019F",
+  "operator_info_provider": "0x488543C6Fe575E340e85F6beAB51524AdacC6Ea6",
+  "operator_key_manager_implementation": "0xB90D4b7a8f87caFbD0f50E760CfD85Ab4832B1aE",
+  "operator_key_manager_proxy": "0xaa361ACe93A5608C5C4243be615AB6e72523067D",
+  "operator_stake_manager_implementation": "0x25b19a2C0Af46E2332B50CB337EB935c0c1BC26b",
+  "operator_stake_manager_proxy": "0x9A2bB48A6a6Cfad9Eee0dD104452e356054E530f",
+  "price_aggregator_implementation": "0xefFad9519dAdB2ac17491c2442F1206dd7BF8247",
+  "price_aggregator_proxy": "0x5c4EA5ebbCDa8f0338a9aD45b719FA8691113e56",
+  "price_oracle_pay_in_native_consumer": "0x1b4BAf265F88db07bC9fB5E3e46A600E350AFADC",
+  "proxy_admin": "0xd3f9b93B1a57AA9063B5574E271F9aD1a3C6Cd0E",
+  "script_oracle_pay_in_native_consumer": "0xb65cdD4869d4Ae9509E71263EFb60E7803994924"
+}
